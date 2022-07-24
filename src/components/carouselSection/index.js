@@ -34,21 +34,17 @@ let slides = [
 ];
 
 function CarouselItem(options) {
-    var title = options.title;
-    var txt = options.txt;
-    var src = options.src;
-    var number = options.number;
-    var act = number === "1" ? 'active' : '';
-    console.log(number);
-    console.log(act);
+    var act = options.number === "1" ? 'active' : '';
     return (
         <MDBCarouselItem className={act}>
-            <p className="carousel-number">{number}</p>
-            <MDBCarouselElement src={src} alt={title} />
-            <MDBCarouselCaption>
-                <h3 className="carousel-caption-title">{title}</h3>
-                <h5 className="carousel-caption-txt">{txt}</h5>
-            </MDBCarouselCaption>
+            <p className="carousel-number">{options.number}</p>
+            <a href={options.link} rel="noreferrer" target="_blank">
+                <MDBCarouselElement src={options.src} alt={options.title} />
+                <MDBCarouselCaption>
+                    <h3 className="carousel-caption-title">{options.title}</h3>
+                    <h5 className="carousel-caption-txt">{options.txt}</h5>
+                </MDBCarouselCaption>
+            </a>
         </MDBCarouselItem>
     );
 }
@@ -62,19 +58,29 @@ export function Carousel() {
                     number="1"
                     title="Ayrenergy.com"
                     src="/ayrenergy.gif"
+                    link="https://github.com/Ayrenergy/AyrenergyMonitor"
                     txt="Live Wind Farm dashboard for current power and data history."
                 />
                 <CarouselItem
                     number="2"
                     title="Genetic Algorithm Trading Bot"
                     src="/dna.webp"
+                    link="https://github.com/AndrewSkea/GeneticAlgorithmTrading"
                     txt="GA using financial indicators to make trading decisions."
                 />
                 <CarouselItem
                     number="3"
                     title="Spotify NFC Jukebox"
                     src="/jukebox.webp"
+                    link="https://github.com/AndrewSkea/Spotify-NFC-Jukebox"
                     txt="Jukebox for elderly or people with Alzheimer's to visualise music and play on modern speaker systems."
+                />
+                <CarouselItem
+                    number="4"
+                    title="This website"
+                    src="/jukebox.webp"
+                    link="https://github.com/AndrewSkea/my-website"
+                    txt="Portfolio website using React, ThreeJS, React-Fiber, Strapi and Globe GL"
                 />
             </MDBCarouselInner>
         </MDBCarousel>

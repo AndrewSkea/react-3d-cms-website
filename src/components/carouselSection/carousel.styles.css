@@ -53,4 +53,9 @@
 .carousel-caption {
   position: initial !important;
   display: block !important;
+  text-decoration: none;
+}
+
+.carousel-item a {
+  text-decoration: none;
 }
