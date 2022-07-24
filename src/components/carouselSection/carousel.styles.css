@@ -1,0 +1,61 @@
+#project-row {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+.inner-project-section {
+  padding: 1% 5% 1% 5%;
+}
+
+#carousel-section-title {
+  color: #002d70;
+  padding-top: 2%;
+  text-align: center;
+}
+
+.carousel-number {
+  color: #002d70;
+  text-align: center;
+  margin: 0;
+}
+
+.carousel-section {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.social-links {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.social-links h1 a {
+  color: black;
+}
+
+.social-links h3 {
+  color: #002d70;
+}
+
+@media (max-width: 1000px) {
+  .carousel-item {
+    height: 425px;
+    max-height: 425px;
+  }
+}
+
+@media (max-width: 800px) {
+  .carousel-item img {
+    height: auto;
+  }
+}
+
+.carousel-caption {
+  position: initial !important;
+  display: block !important;
+  text-decoration: none;
+}
+
+.carousel-item a {
+  text-decoration: none;
+}

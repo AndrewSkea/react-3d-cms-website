@@ -13,7 +13,6 @@ const GlobeHolder = styled.h3`
 `;
 
 export const World = (size) => {
-    console.log(size.width);
     const [countries, setCountries] = useState({ features: [] });
     const arcsData = [];
     const globeEl = useRef();
@@ -36,7 +35,7 @@ export const World = (size) => {
             <Globe
                 ref={globeEl}
                 backgroundColor="rgba(0,0,0,0)"
-                globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+                globeImageUrl="/earth-dark.jpg"
                 labelsData={markerData}
                 labelText={"label"}
                 labelSize={1.2}

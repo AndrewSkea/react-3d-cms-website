@@ -19,6 +19,13 @@ const Logo = styled.h1`
   color: #fff;
   font-weight: 800;
   font-size: 80px;
+  @media (max-width: 1200px) {
+    font-size: 60px;
+  }
+  @media (max-width: 800px) {
+    font-size: 50px;
+    text-align: center;
+  }
 `;
 
 const Slogan = styled.h4`
@@ -27,16 +34,29 @@ const Slogan = styled.h4`
   font-weight: 700;
   font-size: 30px;
   margin-top: 10px;
+  @media (max-width: 1200px) {
+    font-size: 25px;
+  }
+  @media (max-width: 800px) {
+    font-size: 20px;
+    text-align: center;
+  }
 `;
 
 const Paragraph = styled.p`
   margin: 0;
-  margin-top: 3em;
-  color: #fff;
+  margin-top: 0.5em;
+  color: black;
   font-size: 20px;
   line-height: 1.5;
   font-weight: 400;
-  // text-align: center;
+  @media (max-width: 1200px) {
+    font-size: 15px;
+  }
+  @media (max-width: 800px) {
+    font-size: 10px;
+    text-align: center;
+  }
 `;
 
 const DonateButton = styled.button`
@@ -70,13 +90,21 @@ export function TopSection() {
   return (
     <TopSectionContainer>
       <Logo>Andrew Skea</Logo>
-      <Slogan>Welcome to my website, browse away :)</Slogan>
+      <Slogan>Software Engineer &#128421;&#65039;</Slogan>
       <Paragraph>
-        I'm a Software engineer who likes to get stuck into a variety of projects ranging from ML
-        to website building to electronics. You can check out the technologies I have used as well
-        as the projects I've built below! <br /><br />
-        The Globe shows you the places I have lived in red and have vistied in white.
-        The heights represent how long I have lived there, the smallest being 3 years. Have a spin!
+        <span className="removeOnMobile">
+          who likes building websites, ML models, APIs and whole load of custom software!
+        <br /><br /><br /><br />
+        Check out the globe!<br />
+        </span>
+        <span style={{color: "white"}}>White markers - Visited &#9992;&#65039;</span><br />
+        <span style={{color: "red"}}>Red markers - Lived &#127968;</span><br />
+
+        The heights are how long I have lived there
+        <span className="removeOnMobile">
+        , the smallest being 3 years. Have a spin!
+        </span>
+        
       </Paragraph>
     </TopSectionContainer>
   );

@@ -68,7 +68,6 @@ function getMarketdata() {
       label: vkey
     })
   }
-  console.log(data);
   return data;
 }
 
@@ -107,7 +106,6 @@ export const arcsData = [
   {
     startLat: 35.007752,
     startLng: -97.092877,
-
     endLat: 41.8781136,
     endLng: -87.6297982,
     color: " white"
