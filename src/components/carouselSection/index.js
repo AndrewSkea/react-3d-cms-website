@@ -9,30 +9,6 @@ import {
 
 import "./carousel.styles.css";
 
-let slides = [
-    <a href="https://github.com/Ayrergy/Ayrergy.git" rel="noreferrer" target="_blank" alt="1" >
-        <img src="/ayrenergy.gif" alt="1" />
-    </a>,
-    <a href="https://github.com/AndrewSkea/GeneticAlgorithmTrading" rel="noreferrer" target="_blank" alt="2" >
-        <img src="/dna.webp" alt="2" />
-    </a>,
-    <a href="https://github.com/AndrewSkea/Spotify-NFC-Jukebox" rel="noreferrer" target="_blank" alt="3" >
-        <img src="/jukebox.jpg" alt="3" />
-    </a>,
-    <a href="https://github.com/AndrewSkea/IPCamDisplay" rel="noreferrer" target="_blank" alt="4" >
-        <img src="/jukebox.jpg" alt="4" />
-    </a>,
-    <a href="https://github.com/AndrewSkea/EzvizRemoteCameraController" rel="noreferrer" target="_blank" alt="5" >
-        <img src="/jukebox.jpg" alt="5" />
-    </a>,
-    <a href="https://github.com/AndrewSkea/my-website" rel="noreferrer" target="_blank" alt="6" >
-        <img src="/jukebox.jpg" alt="6" />
-    </a>,
-    <a href="https://github.com/AndrewSkea/TradingBot" rel="noreferrer" target="_blank" alt="7" >
-        <img src="/jukebox.jpg" alt="7" />
-    </a>
-];
-
 function CarouselItem(options) {
     var act = options.number === "1" ? 'active' : '';
     return (
@@ -78,9 +54,30 @@ export function Carousel() {
                 <CarouselItem
                     number="4"
                     title="This website"
-                    src="/jukebox.webp"
+                    src="/mywebsite.png"
                     link="https://github.com/AndrewSkea/my-website"
                     txt="Portfolio website using React, ThreeJS, React-Fiber, Strapi and Globe GL"
+                />
+                <CarouselItem
+                    number="5"
+                    title="IP Camera Monitor"
+                    src="/ipcamera.jpg"
+                    link="https://github.com/AndrewSkea/IPCamDisplay"
+                    txt="A performant website to display simultaneous rtmp streams from ip cameras."
+                />
+                <CarouselItem
+                    number="6"
+                    title="IP Camera WiFi Controller"
+                    src="/ipcontroller.jpg"
+                    link="https://github.com/AndrewSkea/EzvizRemoteCameraController"
+                    txt="Camera controller - arduino powered wifi controller for PTZ cameras."
+                />
+                <CarouselItem
+                    number="7"
+                    title="Trading Bot"
+                    src="/tradingbot.png"
+                    link="https://github.com/AndrewSkea/TradingBot"
+                    txt="Trading Bot for users to combine market indicators to backtest strategies."
                 />
             </MDBCarouselInner>
         </MDBCarousel>
