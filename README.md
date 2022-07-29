@@ -40,3 +40,10 @@ Open localhost:3000
 
 - I highly recomend Cloudflare Pages for deploying this app - this is a great guide on how to do it (make sure to integrate with GitHub so that each time you commit, it automatically builds a website for your branch, and for your master branch.)
   - https://developers.cloudflare.com/pages/framework-guides/deploy-a-react-application/#:~:text=Every%20time%20you%20commit%20new,before%20deploying%20them%20to%20production.
+
+## Credits
+
+- https://github.com/vasturiano/react-globe.gl
+- https://github.com/remarkjs/react-markdown
+- https://github.com/pmndrs/react-three-fiber
+- https://www.contentful.com/
