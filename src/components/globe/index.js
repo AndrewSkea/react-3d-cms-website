@@ -42,28 +42,29 @@ export const World = (size) => {
         <GlobeHolder>
             <Globe
                 ref={globeEl}
+                // Background
                 backgroundColor="rgba(0,0,0,0)"
                 globeImageUrl="/earth-dark.jpg"
+                // Labels
                 labelsData={locations}
                 labelText={"label"}
-                labelSize={1.2}
-                labelDotOrientation={() => 'bottom'}
-                labelRotation={-15}
-                labelColor={useCallback(() => "white", [])}
+                labelSize={1.4}
+                labelDotOrientation={() => 'right'}
+                labelRotation={-25}
+                labelColor={useCallback(() => "lightgrey", [])}
                 labelDotRadius={0}
-                labelAltitude={0.001}
+                labelAltitude={0.005}
+                // Polygons
                 hexPolygonsData={countries.features}
                 hexPolygonResolution={3}
                 hexPolygonMargin={0.3}
                 hexPolygonColor={() => `#${Math.round(Math.random() * Math.pow(2, 24)).toString(16).padStart(6, '0')}`}
-                //     hexPolygonLabel={({ properties: d }) => `
-                //   <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
-                //   Population: <i>${d.POP_EST}</i>
-                // `}
+                // Points
                 pointsData={locations}
                 pointAltitude="size"
                 pointRadius="radius"
                 pointColor="color"
+                // Size
                 animateIn={true}
                 width={size.width}
                 height={size.height}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactMarkdown from 'react-markdown'
 
 import { getTechnologies } from "../../cms"
 import "./tech.styles.css";
@@ -11,7 +12,7 @@ function Technology(ins) {
             <img className="card-img-left tech-img" src={tech.techLogo.fields.file.url} alt="" />
             <div className="card-body tech-card-body">
                 <h5 className="card-title tech-title">{tech.title}</h5>
-                <p className="card-text">{tech.description}</p>
+                <ReactMarkdown className="card-text">{tech.description}</ReactMarkdown>
             </div>
         </div>
     )
