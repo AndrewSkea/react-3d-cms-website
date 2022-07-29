@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     MDBCarousel,
     MDBCarouselInner,
@@ -6,19 +6,21 @@ import {
     MDBCarouselElement,
     MDBCarouselCaption,
 } from 'mdb-react-ui-kit';
+import { getProjects } from "../../cms"
 
 import "./carousel.styles.css";
 
 function CarouselItem(options) {
-    var act = options.number === "1" ? 'active' : '';
+    var project = options.project;
+    var act = project.id === 1 ? 'active' : '';
     return (
         <MDBCarouselItem className={act}>
-            <p className="carousel-number">{options.number}</p>
-            <a href={options.link} rel="noreferrer" target="_blank">
-                <MDBCarouselElement src={options.src} alt={options.title} />
+            <p className="carousel-number">{project.id}</p>
+            <a href={project.url} rel="noreferrer" target="_blank">
+                <MDBCarouselElement src={project.image.fields.file.url} alt={project.title} />
                 <MDBCarouselCaption>
-                    <h3 className="carousel-caption-title">{options.title}</h3>
-                    <h5 className="carousel-caption-txt">{options.txt}</h5>
+                    <h3 className="carousel-caption-title">{project.title}</h3>
+                    <h5 className="carousel-caption-txt">{project.description}</h5>
                 </MDBCarouselCaption>
             </a>
         </MDBCarouselItem>
@@ -27,10 +29,56 @@ function CarouselItem(options) {
 
 
 export function Carousel() {
+    const [projects, setProjects] = useState([]);
+    const getProjs = getProjects();
+
+    useEffect(() => {
+        getProjs.then(projects => {
+            setProjects(projects)
+        })
+    }, [])
     return (
         <MDBCarousel showIndicators showControls fade>
             <MDBCarouselInner>
-                <CarouselItem
+                {projects.map((proj, index) => (
+                    <CarouselItem key={index} project={proj} />
+                ))}
+            </MDBCarouselInner>
+        </MDBCarousel>
+    );
+}
+
+export function Projects() {
+    return (
+        <div id="project-row" >
+            <h1 id="carousel-section-title">Projects</h1>
+            <div className="container inner-project-section">
+                <div className="row carousel-section">
+                    <Carousel />
+                </div>
+                <div className="row social-links">
+                    <h1>
+                        <a href="https://github.com/AndrewSkea" rel="noreferrer" target="_blank">
+                            <i className="fa fa-github fa-lg" />
+                        </a>
+                        &nbsp;
+                        &nbsp;
+                        <a href="https://www.linkedin.com/in/andrew-skea-620972115/" rel="noreferrer" target="_blank">
+                            <i className="fa fa-linkedin"></i>
+                        </a>
+                        <br />
+                    </h1>
+                    <h3>
+                        Andrew Skea <i className="fa fa-copyright"></i>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+
+{/* <CarouselItem
                     number="1"
                     title="Ayrenergy.com"
                     src="/ayrenergy.gif"
@@ -78,37 +126,4 @@ export function Carousel() {
                     src="/tradingbot.png"
                     link="https://github.com/AndrewSkea/TradingBot"
                     txt="Trading Bot for users to combine market indicators to backtest strategies."
-                />
-            </MDBCarouselInner>
-        </MDBCarousel>
-    );
-}
-
-export function Projects() {
-    return (
-        <div id="project-row" >
-            <h1 id="carousel-section-title">Projects</h1>
-            <div className="container inner-project-section">
-                <div className="row carousel-section">
-                    <Carousel />
-                </div>
-                <div className="row social-links">
-                    <h1>
-                        <a href="https://github.com/AndrewSkea" rel="noreferrer" target="_blank">
-                            <i className="fa fa-github fa-lg" />
-                        </a>
-                        &nbsp;
-                        &nbsp;
-                        <a href="https://www.linkedin.com/in/andrew-skea-620972115/" rel="noreferrer" target="_blank">
-                            <i className="fa fa-linkedin"></i>
-                        </a>
-                        <br />
-                    </h1>
-                    <h3>
-                        Andrew Skea <i className="fa fa-copyright"></i>
-                    </h3>
-                </div>
-            </div>
-        </div>
-    );
-}
+                /> */}
