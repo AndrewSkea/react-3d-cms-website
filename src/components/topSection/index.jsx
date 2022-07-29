@@ -59,33 +59,6 @@ const Paragraph = styled.p`
   }
 `;
 
-const DonateButton = styled.button`
-  outline: none;
-  border: none;
-  background-color: #27b927;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 8px;
-  padding: 8px 2em;
-  margin-top: 3em;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 350ms ease-in-out;
-  &:hover {
-    background-color: transparent;
-    border: 2px solid #27b927;
-  }
-`;
-
-const MadeBy = styled.h3`
-  color: #fff;
-  position: fixed;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-`;
-
 export function TopSection() {
   return (
     <TopSectionContainer>
