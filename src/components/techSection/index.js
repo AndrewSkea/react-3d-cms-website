@@ -12,7 +12,7 @@ function Technology(ins) {
             <img className="card-img-left tech-img" src={tech.techLogo.fields.file.url} alt="" />
             <div className="card-body tech-card-body">
                 <h5 className="card-title tech-title">{tech.title}</h5>
-                <ReactMarkdown className="card-text">{tech.description}</ReactMarkdown>
+                <ReactMarkdown components={{ p: 'span' }}>{tech.description}</ReactMarkdown>
             </div>
         </div>
     )
