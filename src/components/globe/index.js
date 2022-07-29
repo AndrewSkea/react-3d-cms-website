@@ -6,7 +6,8 @@ import React, {
 } from "react";
 import styled from "styled-components";
 import Globe from "react-globe.gl";
-import { markerData } from "../../data/countries_data";
+
+import { getCountries } from "../../cms"
 
 const GlobeHolder = styled.h3`
   color: #fff;
@@ -14,8 +15,15 @@ const GlobeHolder = styled.h3`
 
 export const World = (size) => {
     const [countries, setCountries] = useState({ features: [] });
-    const arcsData = [];
     const globeEl = useRef();
+    const [locations, setLocations] = useState([]);
+    const getLocations = getCountries();
+
+    useEffect(() => {
+        getLocations.then(loc => {
+            setLocations(loc)
+        })
+    }, [])
 
     useEffect(() => {
         // load data
@@ -36,7 +44,7 @@ export const World = (size) => {
                 ref={globeEl}
                 backgroundColor="rgba(0,0,0,0)"
                 globeImageUrl="/earth-dark.jpg"
-                labelsData={markerData}
+                labelsData={locations}
                 labelText={"label"}
                 labelSize={1.2}
                 labelDotOrientation={() => 'bottom'}
@@ -52,13 +60,11 @@ export const World = (size) => {
                 //   <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
                 //   Population: <i>${d.POP_EST}</i>
                 // `}
-                pointsData={markerData}
+                pointsData={locations}
                 pointAltitude="size"
                 pointRadius="radius"
                 pointColor="color"
                 animateIn={true}
-                arcColor={"color"}
-                arcsData={arcsData}
                 width={size.width}
                 height={size.height}
             />

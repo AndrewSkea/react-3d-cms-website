@@ -45,3 +45,33 @@ export const getProjects = async () => {
         console.log(`Error fetching projects ${error}`);
     }
 };
+
+export const getCountries = async () => {
+    try {
+        console.log("Getting Countries");
+        const entries = await client.getEntries({
+            content_type: "countries",
+            select: "fields"
+        });
+
+        const sanitizedEntries = entries.items.map((item) => {
+            var colour = "white";
+            var rad = "0.3";
+            if (item.fields.lived) {
+                colour = "red";
+                rad = "0.5"
+            }
+            return {
+                lat: item.fields.coordinates.lat,
+                lng: item.fields.coordinates.lon,
+                size: item.fields.length,
+                color: colour,
+                radius: rad,
+                label: item.fields.name
+            }
+        });
+        return sanitizedEntries;
+    } catch (error) {
+        console.log(`Error fetching projects ${error}`);
+    }
+};
